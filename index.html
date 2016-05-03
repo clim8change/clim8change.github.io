@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clim8change is gr8 m8</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Audiowide">
+  <link rel="stylesheet" type="text/css" href="style.css">
+<body>
+   <div id="climatechange-what">
+       <img id="climate-title" src="http://i.imgur.com/K4xSP3R.png" width="100%"><hr><!-- what are rox-->
+       <p id="climatechange-info" style="font-size: 25pt;">
+         Climate change, or global warming, is the warming of the surface of the Earth. There are many pieces of evidence to support climate
+         change, such as melting glaciers. However, many people doubt that humans are the cause of climate change, and some don't even believe
+         in climate change. This website and presentation was designed to convice them that climate change does exist.
+       </p>
+   </div>
+   <div id="glaciers-before">
+     <img src="http://i.imgur.com/e5xncNJ.png" id="img-glaciers-title" style="width:100%"><hr>
+     <img src="http://eoimages.gsfc.nasa.gov/images/imagerecords/5000/5668/glacier_4up.jpg" id="glacier-main" height="300px"></img>
+     <div id="arrow-buttons">
+       <button id="button-left" class="arrow-button">
+         <img class="arrow-image" src="http://s16.postimg.org/4gfo6xio3/Untitled.png">
+       </button>
+       <button id="button-right" class="arrow-button">
+         <img class="arrow-image" src="https://cloud.githubusercontent.com/assets/10279512/11770514/8fbd0ce6-a1b4-11e5-827d-26b330b97af2.png">
+       </button>
+     </div>
+   </div>
+   <div id="quiz" style="width:100%">
+     <img src="http://i.imgur.com/0IfoUUs.png" style="width:100%">
+     <hr>
+     <p id="question" class='q'></p>
+<p id="1" class='a'></p>
+<p id="2" class='a'></p>
+<p id="3" class='a'></p>
+<p id="4" class='a'></p>
+<p id="select" class='a"'>Choice:
+    <input id="option" size="1" maxlength="1"></input>
+    <br>
+    <br>
+    <button id="check" class='a'>Submit</button>
+</p>
+<p id="flash" class='f'></p>
+<p id="end"></p>
+<script>
+var qNum = 1;
+var answers = [undefined, 2, 3, 2, 4, 1, 4];
+var questions = ["", "Which of these is <b>NOT</b> evidence for climate change?", "The sea level has risen __cm over the past century", "What is one of the main causes of global warming?", "True/False: Oceans absorb some of the heat that is caused by global warming.", "Global warming affects", "How many citations do we have?"];
+var options = ["", "Surface temperature rise", "Ocean deacidification", "JOHN CENA", "Melting of glaciers", "69", "21", "17", "38", "The sun expanding", "Greenhouse gases", "Reduced cloud cover", "Fre shavaca do", "Neither", "Frue", "Tralse", "True", "The entire world", "Only antartica", "Your digestive system", "djsifjaoeurh3l7yvr23iaugldfajhs SPAM SPAM SPAM dfuahli", "1", "7", "3", "8"];
+var choice = "";
+var correct = [];
+function checkAmount() {
+    var j = 0;
+    for(var i = 0;i < correct.length;i ++) {
+        if(correct[i] === true) j++;
+    }
+    return j;
+}
+function displayQ(number) {
+    document.getElementById("question").innerHTML = "Q" + number + ": " + questions[number];
+    document.getElementById("1").innerHTML = "1: " + options[(number - 1) * 4 + 1];
+    document.getElementById("2").innerHTML = "2: " + options[(number - 1) * 4 + 2];
+    document.getElementById("3").innerHTML = "3: " + options[(number - 1) * 4 + 3];
+    document.getElementById("4").innerHTML = "4: " + options[(number - 1) * 4 + 4];
+}
+function displayE() {
+    var amountcorrect = checkAmount();
+    var todisp = "<p class='q'>End!</p><p class='a'>You got " + amountcorrect + "/6 questions correct!</p><p class='a'>That is " + Math.round(amountcorrect/6 * 100) + "%!</p>";
+    document.getElementById("question").innerHTML = "";
+    document.getElementById("1").innerHTML = "";
+    document.getElementById("2").innerHTML = "";
+    document.getElementById("3").innerHTML = "";
+    document.getElementById("4").innerHTML = "";
+    document.getElementById("select").innerHTML = "";
+    document.getElementById("end").innerHTML = todisp;
+}
+function submitA() {
+    if (answers[qNum] == document.getElementById('option').value) {
+        alert("Correct!");
+        document.getElementById('option').value = "";
+        if(correct.length < qNum) correct = correct.concat(true);
+        qNum += 1;
+    } else {
+        alert("Incorect!");
+        if(correct.length < qNum) {
+        correct = correct.concat(false);}
+    }
+}
+function loop() {
+    if (qNum < 7) {
+        displayQ(qNum);
+    } else displayE();
+}
+setInterval(loop, 100);
+document.getElementById('check').addEventListener('click', submitA, false);
+</script>
+   </div>
+   <div id="presentation">
+     <img src="http://i.imgur.com/LrMTZJ3.png" style="width:100%">
+     <hr>
+     <iframe src="https://docs.google.com/presentation/d/1-q4PFjQFpmGGtuP2xTLtxJ1duv60AjF6IgoXm9YyTkk/embed?start=false&loop=false&delayms=3000" frameborder="0" width="694" height="420" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+     <p>Presentation created by Melody Yazdi and Malar Bala</p>
+   </div>
+   <div id="menu-bottom">
+     <hr>
+     <button class="menu-button" id="button-home">
+       <img id="image-menu" src="http://i.imgur.com/rxs8gtz.png" style="position:relative;width:60%">
+     </button>
+     <button class="menu-button" id="button-glaciers">
+       <img id="image-rox-types" src="http://i.imgur.com/nLZvuiq.png" style="position:relative;width:70%">
+     </button>
+     <button class="menu-button" id="button-quiz">
+       <img id="image-rock-cycle" src="http://i.imgur.com/edtfugm.png" style="position:relative;width:50%">
+     </button>
+     <button class="menu-button" id="button-presentation" style="width:30%">
+       <img id="image-stop-motion" src="http://i.imgur.com/FxJWucg.png" style="position:relative;width:100%">
+     </button>
+   </div>
+   <script src="main.js" type="text/javascript"></script>
+ </body>
+ </html>
